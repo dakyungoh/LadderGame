@@ -11,3 +11,20 @@ if (peoples < 2 || peoples > 8) {
   );
   process.exit(1);
 }
+
+// 2. 사다리 출력하기
+function printLadder(numberOfPlayers, height) {
+  const length = numberOfPlayers + (numberOfPlayers - 1); // 사다리의 길이는 인원 + (인원-1)
+  for (let i = 0; i < height; i++) {
+    let line = "";
+    for (let j = 0; j < length; j++) {
+      if (j % 2 === 0) {
+        line = line + "|"; // 짝수번째에는 "|" 가 출력된다.
+      } else {
+        line = line + (Math.random() > 0.5 ? "-" : " "); // 홀수번째에는 "-" 또는 ""가 출력된다.
+      }
+    }
+    console.log(line);
+  }
+}
+printLadder(peoples, height);
